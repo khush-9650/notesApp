@@ -17,8 +17,14 @@ app.get('/files/:filename', function (req, res) {
     fs.readFile(`./files/${req.params.filename}`, "utf-8", function (err, filedata) {
         res.render("show", { filename: req.params.filename, filedata: filedata })
     })
-}); app.get('/edit/:filename', function (req, res) {
-    res.render('edit');
+});
+app.get('/edit/:filename', function (req, res) {
+    res.render('edit', { filename: req.params.filename });
+});
+app.post('/edit', function (req, res) {
+    fs.rename(`./files/${req.body.previousName}`, `./files/${req.body.newName}`, function (err) {
+        res.redirect("/");
+    })
 });
 app.post('/create', function (req, res) {
     fs.writeFile(`./files/${req.body.name.split(' ').join("")}.txt`, req.body.title, function (err) {
