@@ -6,51 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
-    <div class="main w-full min-h-screen bg-zinc-900 ">
-        <div class="form p-10 text-white max-w-screen-xl mx-auto">
-            <form action="/create" method="post">
-                <input class="block bg-zinc-800  w-[50%] px-5 py-2 outline-none rounded-lg" type="text"
-                    placeholder="Title goes here" name="name">
-                <textarea class="block bg-zinc-800 w-[50%] px-5 py-2 resize-none mt-2 outline-none rounded-lg"
-                    placeholder="Write your task details here" name="title"></textarea>
-                <input type="submit" class="mt-2 bg-blue-400 rounded-xl px-3 py-2" value="Create Task">
-            </form>
+    <div class="w-full h-[100vh] bg-zinc-900 p-10 text-white">
+        <div class="nav text-blue-500 text-sm mb-10">
+            <a href="/read">Read Users</a>
         </div>
-        <div class="tasks p-10 max-w-screen-xl mx-auto flex gap-4 flex-wrap">
-            <% if(files.length>0 ){%>
-                <% files.forEach(function(val){%>
-                    <div class="task w-72  bg-zinc-800 px-3 py-4 rounded-xl">
-                        <h1 class="text-white text-3xl font-bold">
-                            <%=val%>
-                        </h1>
-                        <div class="flex flex-col justify-center items-between">
-                            <a href="/files/<%=val%>"
-                                class="leading-none text-zinc-500 mt-2 text-sm font-semibold">Lorem
-                                ipsum dolor sit amet, consectetur
-                                adipisicing
-                                elit. Dolorem necessitatibus est unde dolorum saepe exercitationem aperiam eum tenetur
-                                enim
-                                rerum.
-                            </a>
-                            <a href="/edit/<%=val%>" class="text-sm font-bold mt-10 text-zinc-300 ">edit file name</a>
-                        </div>
-                    </div>
-                    <%}) %>
-                        <% } else{%>
-                            <h3 class="text-zinc-500">no task yet.</h3>
-                            <% } %>
+        <h1 class="text-4xl mb-10 font-semibold">Create User</h1>
 
+        <form action="/create" method="post">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 outline-none rounded-lg bg-transparent"
+                placeholder="name" name="name">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 outline-none rounded-lg bg-transparent"
+                placeholder="email" name="email">
+            <input type="text" class="px-5 py-2 border-2 border-zinc-800 outline-none rounded-lg bg-transparent"
+                placeholder="image url" name="image">
+            <input type="submit" value="Create User" class="px-5 py-2  outline-none rounded-lg bg-blue-500 ml-4">
+        </form>
 
-
-        </div>
     </div>
-
-
-
-
 </body>
 
 </html>

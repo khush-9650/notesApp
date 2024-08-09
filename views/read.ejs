@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white select-none">
+        <a href="/" class="text-sm text-zinc-500 ">Back to home</a>
+        <h1 class="text-4xl my-10 font-semibold">Users</h1>
+        <div class="users flex flex-wrap gap-4 w-full">
+            <%users.forEach(function(user){%>
+                <div class="user w-72 p-4 bg-zinc-800 rounded-lg">
+                    <div class="w-full h-52 bg-zinc-500 rounded-lg overflow-hidden">
+                        <img src="<%= user.image %>" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl tracking-tight mt-3 font-semibold">
+                        <%= user.name %>
+                    </h3>
+                    <h5 class="text-zinc-400">
+                        <%= user.email %>
+                    </h5>
+                    <p class="text-zinc-500 text-xs leading-none">Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit.
+                        Numquam eveniet cupiditate quo! Dignissimos quidem saepe sit dolorem eum veritatis est!</p>
+                    <div class="flex gap-3 mt-3">
+                        <a href="" class="text-xs text-blue-200 ">Edit User</a>
+                        <a href="" class="text-xs text-red-500 ">Delet User</a>
+                    </div>
+                </div>
+                <%}) %>
+        </div>
+
+    </div>
+</body>
+
+</html>
