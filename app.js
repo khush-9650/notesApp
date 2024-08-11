@@ -28,5 +28,9 @@ app.get('/delete/:id', async (req, res) => {
     let user = await userModel.findOneAndDelete({ _id: req.params.id });
     res.redirect("/read");
 });
+app.get('/edit/:id', async (req, res) => {
+    let user = await userModel.findOne({ _id: req.params.id });
+    res.render("edit", { user });
+});
 
 app.listen(3000)
