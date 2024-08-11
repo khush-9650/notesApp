@@ -32,5 +32,10 @@ app.get('/edit/:id', async (req, res) => {
     let user = await userModel.findOne({ _id: req.params.id });
     res.render("edit", { user });
 });
+app.post('/update/:userid', async (req, res) => {
+    let { newname, newemail, newimage } = req.body;
+    let user = await userModel.findOneAndUpdate({ _id: req.params.id }, { newname, newemail, newimage }, { new: true });
+    res.redirect("/read");
+});
 
 app.listen(3000)
