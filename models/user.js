@@ -7,12 +7,9 @@ mongoose.connect('mongodb://localhost:27017/usersApp')
 
 
 const userSchema = new mongoose.Schema({
-    first_name: {
+    name: {
         type: String,
         required: true
-    },
-    last_name: {
-        type: String
     },
     email: {
         type: String,
@@ -21,8 +18,10 @@ const userSchema = new mongoose.Schema({
     },
     image: {
         type: String
-    }
+    },
+
 });
+
 
 
 module.exports = mongoose.model('user', userSchema);
